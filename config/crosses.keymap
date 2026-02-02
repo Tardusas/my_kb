@@ -21,12 +21,12 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "Base";
+            display-name = "Base_td";
             bindings = <
-&as Q LS(Q)  &as W LS(W)  &as E LS(E)     &as R LS(R)  &as T LS(T)  &as Y LS(Y)  &as U LS(U)  &as I LS(I)  &as O LS(O)  &as P LS(P)
-&as A LS(A)  &as S LS(S)  &as D LS(D)     &as F LS(F)  &as G LS(G)  &as H LS(H)  &as J LS(J)  &as K LS(K)  &as L LS(L)  &as SQT LS(SQT)
-&as Z LS(Z)  &as X LS(X)  &as C LS(C)     &as V LS(V)  &as B LS(B)  &as N LS(N)  &as M LS(M)  &kp RCTRL    &kp RALT     &as DOT LS(DOT)
-                          &lt 3 LEFT_GUI  &mo 1        &kp SPACE    &kp RET      &mo 2        &kp BSPC
+&as LS(Q) Q  &as LS(W) W  &as LS(E) E     &as LS(R) R  &as LS(T) T  &as LS(Y) Y  &as LS(U) U  &as LS(I) I  &as LS(O) O  &as LS(P) P
+&as LS(A) A  &as LS(S) S  &as LS(D) D     &as LS(F) F  &as LS(G) G  &as LS(H) H  &as LS(J) J  &as LS(K) K  &as LS(L) L  &kp TAB
+&as LS(Z) Z  &as LS(X) X  &as LS(C) C     &as LS(V) V  &as LS(B) B  &as LS(N) N  &as LS(M) M  &kp COMMA    &kp PERIOD   &as LS(SLASH) SLASH
+                          &lt 0 LEFT_GUI  &mo 1        &lt 2 SPACE  &kp RET      &mo 3        &kp BSPC
             >;
         };
 
@@ -34,19 +34,9 @@
             display-name = "Lower";
             bindings = <
 &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT     &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR   &kp RPAR
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LEFT   &kp DOWN  &kp UP           &kp RIGHT  &trans
-&bt BT_CLR    &trans        &trans        &trans        &trans        &trans     &trans    &trans           &trans     &trans
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT  &trans
+&bt BT_CLR    &trans        &trans        &trans        &trans        &trans     &trans    &trans     &trans     &trans
                             &kp LGUI      &trans        &kp SPACE     &kp RET    &kp ESC   &kp TAB
-            >;
-        };
-
-        raise_layer {
-            display-name = "Raise";
-            bindings = <
-&as N1 EXCL      &as N2 AT       &as N3 HASH  &as N4 DOLLAR        &as N5 PERCENT  &as N6 CARET  &as N7 AMPS           &as N8 ASTRK  &as N9 LEFT_PARENTHESIS  &as N0 RIGHT_PARENTHESIS
-&as MINUS UNDER  &as EQUAL PLUS  &kp LBRC     &kp LBKT             &kp LPAR        &kp RPAR      &kp RBKT              &kp RBRC      &as FSLH QUESTION        &as BSLH PIPE
-&as GRAVE TILDE  &trans          &trans       &as COMMA LESS_THAN  &kp COLON       &kp SEMI      &as DOT GREATER_THAN  &kp LCTRL     &kp RALT                 &trans
-                                 &kp LGUI     &kp ESC              &kp SPACE       &kp RET       &trans                &kp TAB
             >;
         };
 
@@ -57,6 +47,16 @@
 &trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
                    &trans     &trans     &trans  &trans  &trans  &trans
+            >;
+        };
+
+        raise_layer {
+            display-name = "Raise";
+            bindings = <
+&as N1 EXCL      &as N2 AT       &as N3 HASH  &as N4 DOLLAR        &as N5 PERCENT  &as N6 CARET  &as N7 AMPS           &as N8 ASTRK  &as N9 LEFT_PARENTHESIS  &as N0 RIGHT_PARENTHESIS
+&as MINUS UNDER  &as EQUAL PLUS  &kp LBRC     &kp LBKT             &kp LPAR        &kp RPAR      &kp RBKT              &kp RBRC      &as FSLH QUESTION        &as BSLH PIPE
+&as GRAVE TILDE  &trans          &trans       &as COMMA LESS_THAN  &kp COLON       &kp SEMI      &as DOT GREATER_THAN  &kp LCTRL     &kp RALT                 &trans
+                                 &kp LGUI     &kp ESC              &kp SPACE       &kp RET       &trans                &kp TAB
             >;
         };
     };
