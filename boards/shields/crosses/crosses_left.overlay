@@ -44,7 +44,7 @@
   input-processors
     = <&zip_xy_scaler 1 16>
 	, <&zip_xy_to_scroll_mapper>
-    , <&zip_scroll_scaler 1 5>
+    , <&zip_scroll_scaler 1 12>
 	, <&zip_ble_report_rate_limit>;
 };
 
