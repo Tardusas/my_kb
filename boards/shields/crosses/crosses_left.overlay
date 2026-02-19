@@ -6,6 +6,16 @@
 #include "crosses.dtsi"
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
+/ {
+  my_scroll_scaler: my_scroll_scaler {
+    compatible = "zmk,input-processor-scaler";
+    #input-processor-cells = <2>;
+    type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
+    track-remainders;
+  };
+};
+
 &kscan0 {
   col-gpios
     = <&pro_micro 0 GPIO_ACTIVE_HIGH>
@@ -40,12 +50,12 @@
 
 // Overrides for the input-split child node
 &trackball_peripheral_split {
-  device = <&trackball_peripheral>;
   input-processors
     = <&zip_xy_scaler 1 16>
-	, <&zip_xy_to_scroll_mapper>
-    , <&zip_scroll_scaler 1 16>
-	, <&zip_ble_report_rate_limit>;
+    , <&zip_xy_to_scroll_mapper>
+    , <&my_scroll_scaler 1 12>
+    /* , <&zip_ble_report_rate_limit> */
+	;
 };
 
 &pro_micro_i2c {
