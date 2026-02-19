@@ -51,9 +51,9 @@
 // Overrides for the input-split child node
 &trackball_peripheral_split {
   input-processors
-    = <&zip_xy_scaler 1 2>
+    = <&zip_xy_scaler 1 16>
     , <&zip_xy_to_scroll_mapper>
-    , <&my_scroll_scaler 1 2>
+    , <&my_scroll_scaler 1 16>
     , <&zip_ble_report_rate_limit>;
 };
 
