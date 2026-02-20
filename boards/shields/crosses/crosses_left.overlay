@@ -68,7 +68,7 @@
 &trackball_peripheral_split {
   input-processors
     = <&zip_xy_scaler 1 16>
-    , <&zip_xy_to_scroll_mapper>
+    /* , <&zip_xy_to_scroll_mapper> */
     , <&my_scroll_scaler 1 4>
     , <&my_scroll_scaler2 1 8>
     , <&my_scroll_scaler3 1 12>
