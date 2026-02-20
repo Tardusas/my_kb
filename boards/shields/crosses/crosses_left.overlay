@@ -22,6 +22,14 @@
     codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
     track-remainders;
   };
+
+  my_scroll_scaler3: my_scroll_scaler3 {
+    compatible = "zmk,input-processor-scaler";
+    #input-processor-cells = <2>;
+    type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
+    track-remainders;
+  };
 };
 
 &kscan0 {
@@ -61,8 +69,9 @@
   input-processors
     = <&zip_xy_scaler 1 16>
     , <&zip_xy_to_scroll_mapper>
-    , <&my_scroll_scaler 1 16>
-    , <&my_scroll_scaler2 1 16>
+    , <&my_scroll_scaler 1 4>
+    , <&my_scroll_scaler2 1 8>
+    , <&my_scroll_scaler3 1 12>
     /*, <&zip_ble_report_rate_limit> */
 ;
 };
