@@ -13,14 +13,6 @@
     codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
     track-remainders;
   };
-
-  my_scroll_scaler2: my_scroll_scaler2 {
-    compatible = "zmk,input-processor-scaler";
-    #input-processor-cells = <2>;
-    type = <INPUT_EV_REL>;
-    codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
-    track-remainders;
-  };
 };
 
 &kscan0 {
@@ -58,12 +50,10 @@
 // Overrides for the input-split child node
 &trackball_peripheral_split {
   input-processors
-    = <&zip_xy_scaler 1 16>
+    = <&zip_xy_scaler 1 2>
     , <&zip_xy_to_scroll_mapper>
     , <&my_scroll_scaler 1 4>
-    , <&my_scroll_scaler2 1 8>
-    , <&zip_ble_report_rate_limit> 
-;
+    , <&zip_ble_report_rate_limit> ;
 };
 
 &pro_micro_i2c {
