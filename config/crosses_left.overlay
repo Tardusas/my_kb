@@ -37,13 +37,13 @@
   };
 };
 
-// Overrides for the input-split child node
+// Overrides for the input-split child node.
+// NOTE: raw XY is relayed to the central half; the scroll/pointer mode
+// mapping now lives on &trackball_peripheral_listener in crosses.keymap,
+// so it can be switched per-layer (Fusion 360 orbit/pan/zoom modes).
 &trackball_peripheral_split {
   device = <&trackball_peripheral>;
-  input-processors
-    = <&zip_xy_to_scroll_mapper>
-    , <&zip_scroll_scaler 1 4>
-	, <&zip_ble_report_rate_limit>;
+  input-processors = <&zip_ble_report_rate_limit>;
 };
 
 &pro_micro_i2c {
