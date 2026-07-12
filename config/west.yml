@@ -6,14 +6,33 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: Good-Great-Grand-Wonderful
       url-base: https://github.com/Good-Great-Grand-Wonderful
+    - name: efogdev
+      url-base: https://github.com/efogdev
+    - name: badjeff
+      url-base: https://github.com/badjeff
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: ac7f75b8591d39aaf3b66b9d26f26c9ed921a009
       import: app/west.yml
+    # Pinned to the 2026-02-20 state (last known-good build).
+    # gggw's zephyr-4.1 branch later switched the left trackball driver
+    # (swap-xy / pmw3610-alt), which conflicts with our efog-driver overlay.
     - name: gggw-zmk-keebs
       remote: Good-Great-Grand-Wonderful
-      revision: zephyr-4.1
+      revision: e36ff5aa586f7c3412687b1bc733f494c2241c39
       import: config/west.yml
+    # Overrides for modules gggw's west.yml tracks on floating branches.
+    # Pinned to their 2026-02-20 states; newer zmk-report-rate-limit
+    # requires a ZMK API (zmk_endpoint_get_selected) newer than our zmk pin.
+    - name: zmk-pmw3610-driver
+      remote: efogdev
+      revision: c9288fbd6c221c3829658a5cfa3f2283f079d1d4
+    - name: zmk-report-rate-limit
+      remote: efogdev
+      revision: 1400f9f10f900b516fe578c0b52881f239be82b2
+    - name: zmk-input-processor-xyz
+      remote: badjeff
+      revision: 0f0574f6a6c5b08fa964dff7b957ce67b2e0a9cf
   self:
     path: config

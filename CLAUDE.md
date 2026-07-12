@@ -31,7 +31,7 @@ Personal ZMK user config for a **GGGW Crosses 36-key split keyboard** (nice_nano
 - `config/crosses.keymap` — keymap, macros, trackball listener overrides
 - `config/crosses_left.overlay` — left-half hardware (kscan cols, PMW3610, OLED, input-split)
 - `config/crosses.conf` — Kconfig (pointing, BLE, PMW3610 tuning)
-- `config/west.yml` — pins `zmkfirmware/zmk` to a specific commit and `gggw-zmk-keebs` to branch `zephyr-4.1`
+- `config/west.yml` — pins **everything** to exact commits (zmk, gggw-zmk-keebs, pmw3610 driver, report-rate-limit, input-processor-xyz). Upstream `gggw-zmk-keebs` tracks floating branches for its modules and has broken builds before (driver switch on 2026-05, rate-limit API change on 2026-03). Never un-pin to a branch; when upgrading, bump all pins together and verify the build.
 - `build.yaml` — GitHub Actions build matrix (crosses_36_left / crosses_36_right)
 - `config/crosses.dtsi` — reference copy of the shield dtsi (the one actually built comes from `gggw-zmk-keebs`)
 
