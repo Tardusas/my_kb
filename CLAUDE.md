@@ -22,9 +22,9 @@ Personal ZMK user config for a **GGGW Crosses 36-key split keyboard** (nice_nano
 | 1 | Lower  | `&mo 1` (left thumb)                |
 | 2 | Mouse  | `&lt 2 SPACE`                       |
 | 3 | Raise  | `&mo 3` (right thumb)               |
-| 4 | Fusion | `&tog FUSION` on Lower, bottom-right key |
-| 5 | Orbit  | only via `fusion_orbit` macro (hold J on Fusion layer) |
-| 6 | Pan    | only via `fusion_pan` macro (hold K on Fusion layer)   |
+| 4 | Fusion | `&tog FUSION` on Lower, bottom-right key. Also carries Mouse-layer clicks on the left home row (S/D/F = R/M/L click) |
+| 5 | Orbit  | only via `fusion_orbit` macro (hold H on Fusion layer) |
+| 6 | Pan    | only via `fusion_pan` macro (hold J on Fusion layer)   |
 
 ### Key Files
 

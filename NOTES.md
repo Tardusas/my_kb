@@ -12,8 +12,12 @@ Toggle: hold the **Lower** thumb key (middle left thumb) and press the
 | Action | How | What it sends to Fusion |
 |---|---|---|
 | Zoom  | roll left ball, nothing held | scroll wheel |
-| Orbit | hold **J** + roll left ball  | Shift + middle-button drag |
-| Pan   | hold **K** + roll left ball  | middle-button drag |
+| Orbit | hold **H** + roll left ball  | Shift + middle-button drag |
+| Pan   | hold **J** + roll left ball  | middle-button drag |
+| Click | left home row: **S** = right, **D** = middle, **F** = left | mouse buttons |
+
+The right trackball works as a normal pointer while Fusion mode is on, and the
+mouse clicks live on the Fusion layer itself — no need to hold the Mouse layer.
 
 ### How it works
 
@@ -22,7 +26,7 @@ Toggle: hold the **Lower** thumb key (middle left thumb) and press the
 - The central (right) half maps it per-layer in `config/crosses.keymap` on
   `&trackball_peripheral_listener`: scroll by default, XY passthrough when the
   Orbit (5) or Pan (6) layer is active.
-- Holding J/K on the Fusion layer runs the `fusion_orbit` / `fusion_pan`
+- Holding H/J on the Fusion layer runs the `fusion_orbit` / `fusion_pan`
   macros: they activate the Orbit/Pan layer *and* hold Shift+MMB / MMB, and
   release everything when the key is released.
 - Never move the scroll mapping back onto the peripheral split node — the
@@ -84,7 +88,7 @@ active layer name.
 ## Layers
 
 0 Base · 1 Lower (middle left thumb) · 2 Mouse (hold Space) · 3 Raise (right
-thumb) · 4 Fusion (toggled, Lower + `/`) · 5 Orbit / 6 Pan (only while J/K
+thumb) · 4 Fusion (toggled, Lower + `/`) · 5 Orbit / 6 Pan (only while H/J
 held on Fusion — never activate these directly).
 
 ## New machine setup

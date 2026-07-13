@@ -2,7 +2,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <input/processors.dtsi>
 
 #define BASE   0
 #define LOWER  1
@@ -12,31 +11,7 @@
 #define ORBIT  5
 #define PAN    6
 
-/*
- * Left trackball mode switching (Fusion 360 "space mouse"):
- *  - default:            XY -> scroll  (Fusion zooms on scroll)
- *  - ORBIT layer active: XY passthrough, macro holds Shift+MMB -> orbit
- *  - PAN layer active:   XY passthrough, macro holds MMB       -> pan
- * The ORBIT/PAN layers are only ever activated by the fusion_orbit /
- * fusion_pan macros below (held keys on the FUSION layer).
- */
-&trackball_peripheral_listener {
-    input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 8>;
-
-    orbit_mode {
-        layers = <ORBIT>;
-        input-processors = <&zip_xy_scaler 1 1>;
-    };
-
-    pan_mode {
-        layers = <PAN>;
-        input-processors = <&zip_xy_scaler 1 1>;
-    };
-};
-
 / {
-    chosen { zmk,physical-layout = &gggw_crosses_36_layout; };
-
     macros {
         fusion_orbit: fusion_orbit {
             compatible = "zmk,behavior-macro";
@@ -116,21 +91,16 @@
         };
 
         fusion_layer {
-            // Toggled from Lower (bottom-right key). Typing stays normal;
-            // hold H = orbit, hold J = pan, left ball scrolls = zoom.
-            // Left home row = mouse clicks (same as Mouse layer), so no
-            // need to hold the Mouse layer while in CAD.
             display-name = "Fusion";
             bindings = <
-&trans  &trans     &trans     &trans     &trans  &trans         &trans       &trans  &trans  &trans
-&trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &trans  &fusion_orbit  &fusion_pan  &trans  &trans  &trans
-&trans  &trans     &trans     &trans     &trans  &trans         &trans       &trans  &trans  &trans
-                   &trans     &trans     &trans  &trans         &trans       &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans       &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &fusion_orbit  &fusion_pan  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans       &trans  &trans
+                &trans  &trans  &trans  &trans  &trans         &trans
             >;
         };
 
         orbit_layer {
-            // Activated only while fusion_orbit is held (switches left ball to XY).
             display-name = "Orbit";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -141,7 +111,6 @@
         };
 
         pan_layer {
-            // Activated only while fusion_pan is held (switches left ball to XY).
             display-name = "Pan";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
